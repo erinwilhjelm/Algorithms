@@ -5,20 +5,20 @@
 #         self.left = None
 #         self.right = None
 
-class Solution:
+ class Solution:
     
-    def __init__(self):
+    def flatten(self, root):
+        """
+        :type root: TreeNode
+        :rtype: void Do not return anything, modify root in-place instead.
+        """
         self.prev = None
-
-    def flatten(self, root: TreeNode) -> None:
         
-        if not root:
-            return None
-        
-        self.flatten(root.right)
-        self.flatten(root.left)
-        
-        
-        root.right = self.prev
-        root.left = None
-        self.prev = root
+        def helper(head):
+            if not head: return None
+            helper(head.right)
+            helper(head.left)
+            head.left = None
+            head.right = self.prev
+            self.prev = head
+        helper(root)
