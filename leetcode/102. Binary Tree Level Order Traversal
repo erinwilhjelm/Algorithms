@@ -24,3 +24,4 @@ class Solution:
         trav(0,root)
         return vals
         
+        
