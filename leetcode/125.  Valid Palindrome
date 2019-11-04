@@ -1,0 +1,6 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        
+        import re
+        a = re.sub(r"\W+", r"", s.lower())
+        return a == a[::-1]
