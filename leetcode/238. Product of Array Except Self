@@ -1,0 +1,26 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        
+        
+        """
+        first loop get the product before the element and the second loop get the product after the         element.
+        
+        """
+        output=[1]*len(nums)
+        print(output)
+        n=len(nums)
+    
+        prod=1
+        for i in range(1,n):
+            prod=prod*nums[i-1]
+            print(prod)
+            output[i]*=prod
+            print(output)
+        
+        prod=1
+        for i in range(n-2,-1,-1):
+            prod=prod*nums[i+1]
+            output[i]*=prod
+            print(output)
+    
+        return output
