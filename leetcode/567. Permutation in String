@@ -20,7 +20,7 @@ class Solution:
             
             if len(ans) == n and a != count:
             
-                ans.clear()
+                del ans[:]
                 start += 1
                 end = start
              
