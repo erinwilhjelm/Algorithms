@@ -1,0 +1,32 @@
+
+        
+"""  
+The idea is: if water collects between two heights, the level of water will be equal to the lesser height. 
+Using this idea, we use two pointers at left and right. We keep finding the lesser height. 
+If the left pointer is of lesser height, we move it to the right and vice versa. 
+As we find the lesser height, we continuously keep updating the maximum area found so far.
+"""
+
+
+class Solution(object):
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        left = 0
+        right = len(height) - 1
+        max_water = 0
+        
+        while left <= right:
+        
+        ## left pointer is of lesser height, we move it to the righ
+            if height[left] <= height[right]:
+                water = (right - left) * height[left]
+                left += 1
+            else:
+                water = (right - left) * height[right]
+                right -= 1
+            max_water = max(water, max_water)
+            
+        return max_water
