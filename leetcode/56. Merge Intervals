@@ -11,7 +11,7 @@ class Solution:
             start, end = intervals[i][0], intervals[i][1]
             j = i + 1
             
-            ## get the max value of the end interval
+            ## compare the start and end of next interval to the end of pervious
             while j < len(intervals) and (intervals[j][0] <= end or intervals[j][1] <= end):
                 end = max(end, intervals[j][1])
                 j += 1
