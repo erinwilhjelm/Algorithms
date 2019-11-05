@@ -3,7 +3,11 @@ class Solution:
         
         
         """
-        first loop get the product before the element and the second loop get the product after the         element.
+        first loop get the product before the element and the second loop get the product after the element.
+        product of all the numbers to the left and all the numbers to the right of the index. 
+        Multiplying these two individual products would give us the desired result as well.
+        
+        Time and Space O(N) , N = num elements in the array
         
         """
         output=[1]*len(nums)
