@@ -11,9 +11,10 @@ class Solution:
         
         for i in range (len(values)):
             while num >= values[i]:
+            
                 num -= values[i]
-                print(num)
+                
                 out += Roman[i]
-                print(out)
+               
         return out
         
