@@ -1,0 +1,32 @@
+from collections import Counter
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        
+        start = 0
+        end = 0
+        n = len(s1)
+        ans = []
+        count = collections.Counter(s1)
+
+        
+        while start <= end and end != len(s2):
+            
+            ch = s2[end]
+            ans.append(ch)
+            a = collections.Counter(ans)
+
+            if len(ans) == n and a == count:
+                return True
+            
+            if len(ans) == n and a != count:
+            
+                ans.clear()
+                start += 1
+                end = start
+             
+            else: 
+                end += 1
+                
+                
+        ### Time Limit Exceeded
+        
