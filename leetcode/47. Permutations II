@@ -1,11 +1,24 @@
-class Solution:
-    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
-        ans = [[]]
-        for n in nums:
-            new_ans = []
-            for l in ans:
-                for i in range(len(l)+1):
-                    new_ans.append(l[:i]+[n]+l[i:])
-                    if i<len(l) and l[i]==n: break       #handles duplication
-            ans = new_ans
+class Solution(object):
+    def permuteUnique(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        
+        if len(nums) < 2:
+            return [nums]
+        
+        ans, used = [], {}
+        
+        for i in range(len(nums)):
+            if nums[i] not in used:
+            
+                ## eveything before and after i 
+                suffixes = self.permuteUnique(nums[:i] + nums[i + 1:])
+                
+                for suffix in suffixes:
+                    ans.append([nums[i]] + suffix)
+                
+                ## mark as used so can be duplicated 
+                used[nums[i]] = 1
         return ans
