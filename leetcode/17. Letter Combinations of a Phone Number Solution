@@ -1,5 +1,8 @@
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
+    
+    ## time and space O(3^N x 4^M) where N is number of digits in the input that maps to 3 and M is number of digits that
+    ## mao to 4
         """
         :type digits: str
         :rtype: List[str]
