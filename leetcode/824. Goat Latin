@@ -1,0 +1,13 @@
+class Solution(object):
+  def toGoatLatin(self, S: str) -> str:
+  
+      tem=S.split()
+      for i in range(len(tem)):
+        if tem[i][0] in ['a','e','i','o','u','A','E','I','O','U']:
+          tem[i]+='ma'
+          tem[i]+='a'*(i+1)
+        else:
+          tem[i]=tem[i][1:]+tem[i][0]+'ma'
+          tem[i]+='a'*(i+1)
+      return ' '.join(tem)
+        
