@@ -4,15 +4,23 @@ class Solution:
         start, end = 0, len(nums) - 1
         
         while start <= end:
+            
             mid = (start + end) // 2
+            
             if nums[mid] == target:
                 return mid
+                
+            ## if mid element is grate than the start
             elif nums[mid] >= nums[start]:
+            
+                ## if target > start ad less than mid, shift left
                 if target >= nums[start] and target < nums[mid]:
                     end = mid - 1
                 else:
                     start = mid + 1
             else:
+                
+                ##target less than the end, and target greater than mid, shift right 
                 if target <= nums[end] and target > nums[mid]: 
                     start = mid + 1
                 else:
