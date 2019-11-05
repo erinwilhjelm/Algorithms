@@ -1,0 +1,36 @@
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        M, N = len(board), len(board[0]) if len(board) != 0 else 0
+        
+        def found(m, n, idx):
+            
+            if idx == len(word):
+                return True
+            
+            if not 0 <= m < M or not 0 <= n < N:
+                return False
+            
+            if board[m][n] == None:
+                return False
+            
+            if board[m][n] != word[idx]:
+                return False
+            
+            curr = board[m][n]
+            
+            board[m][n] = None
+            
+            for d_m, d_n in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                if found(m + d_m, n + d_n, idx + 1):
+                    return True
+                
+            board[m][n] = curr
+                
+            return False
+        
+        for m in range(M):
+            for n in range(N):
+                if found(m, n, 0):
+                    return True
+                
+        return False
