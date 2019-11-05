@@ -3,12 +3,16 @@ class Solution:
         
         dic = {}
         for str in strs:
+        
+            ## make them a string and sort 
             key = ''.join(sorted(str))
-            print(key)
+            
+            
+            ## add all common words to the same key
             if key in dic:
                 
                 dic.get(key).append(str)
             else:
                 dic[key] = [str]
-                print(dic[key])
+               
         return dic.values()
