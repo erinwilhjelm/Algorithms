@@ -1,0 +1,17 @@
+class Solution(object):
+    def defangIPaddr(self, address):
+        """
+        :type address: str
+        :rtype: str
+        """
+        
+        i = 0
+        s = ""
+        
+        while i < len(address):
+            if address[i] == '.':
+                s += "[.]"
+            else:
+                s += address[i]
+            i += 1
+        return(s)
