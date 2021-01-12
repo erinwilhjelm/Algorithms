@@ -1,0 +1,34 @@
+class Solution:
+	def letterCasePermutation(self, S: str) -> List[str]:
+		self.res=[]
+		self.dfs(S,'',0)
+		return self.res
+
+	def dfs(self,S,path,index):
+		if index==len(S):
+			self.res.append(path)            
+			return
+
+		if S[index].isalpha():
+			self.dfs(S,path+S[index].lower(),index+1)
+			self.dfs(S,path+S[index].upper(),index+1)
+		else:
+			self.dfs(S,path+S[index],index+1)
+
+
+"""class Solution:
+    def letterCasePermutation(self, S: str) -> List[str]:
+        
+        res = ['']
+        for ch in S:
+            tmp = []
+            for i in res:
+                if ch.isalpha():
+                    tmp.append(i + ch.upper())            
+                    tmp.append(i + ch.lower())
+                    
+                else:
+                    tmp.append(i + ch)
+            res = tmp
+        return res
+"""
